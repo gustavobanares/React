@@ -1,26 +1,31 @@
-import './App.css';
-import HelloWorld from './components/HelloWorld'
-import SayMyName from './components/SayMyName';
-import Pessoa from './components/Pessoa';
-import Frase from './components/Frase';
-import List from './components/List';
-import Evento from './components/Evento';
-import Form from './components/Form';
-import Condicional from './components/Condicional';
-import OutraLista from './components/OutraLista';
+// importar Rotas e componentes
+import { BrowserRouter as Router, Routes, Route , Link} from 'react-router-dom';
+
+// importar os tres componentes
+import Home from "./pages/Home";
+import Empresa from "./pages/Empresa";
+import Contato from "./pages/Contato";
+import Navbar from './components/Navbar';
+import Footer from './components/layout/Footer';
 
 
-function App(){
+function App() {
+  
 
-  const meusItens = ['React', 'Vue', 'Angular']
-
-  return(
-    <div className="App">
-      <h1>Renderizacao de listas</h1>
-      <OutraLista itens ={meusItens}/>
-      <OutraLista itens={[]}/>
-    </div>
-  )
+  return (
+  
+   
+    <Router>
+      <Navbar/>      
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/contato" element={<Contato />} />
+                <Route path="/empresa" element={<Empresa />} />
+            </Routes>
+      <Footer/>
+    </Router>
+  
+  );
 }
 
 
